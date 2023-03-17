@@ -21,6 +21,7 @@ namespace MessageSender.DAL.Migrations
             modelBuilder.Entity("MessageSender.DAL.Models.Event", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -34,6 +35,7 @@ namespace MessageSender.DAL.Migrations
             modelBuilder.Entity("MessageSender.DAL.Models.Professor", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -62,6 +64,7 @@ namespace MessageSender.DAL.Migrations
             modelBuilder.Entity("MessageSender.DAL.Models.Student", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -104,6 +107,7 @@ namespace MessageSender.DAL.Migrations
             modelBuilder.Entity("MessageSender.DAL.Models.StudyYear", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<int>("Year")
