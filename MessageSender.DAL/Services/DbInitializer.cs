@@ -24,9 +24,9 @@ namespace MessageSender.DAL.Services
             await _db.Database.MigrateAsync(cancellationToken).ConfigureAwait(false);
             _logger.LogInformation("DB migrated after {0} ms", timer.ElapsedMilliseconds);
 
-            if (await _db.Professors.AnyAsync(cancellationToken)) await InitializeProfessors(cancellationToken);
-            if (await _db.Events.AnyAsync(cancellationToken)) await InitializeEvents(cancellationToken);
-            if (await _db.StudyYears.AnyAsync(cancellationToken)) await InitializeStudyYears(cancellationToken);
+            if (!await _db.Professors.AnyAsync(cancellationToken).ConfigureAwait(false)) await InitializeProfessors(cancellationToken);
+            if (!await _db.Events.AnyAsync(cancellationToken).ConfigureAwait(false)) await InitializeEvents(cancellationToken);
+            if (!await _db.StudyYears.AnyAsync(cancellationToken).ConfigureAwait(false)) await InitializeStudyYears(cancellationToken);
 
             timer.Stop();
             _logger.LogInformation("DB Initialized after {0} ms", timer.ElapsedMilliseconds);
